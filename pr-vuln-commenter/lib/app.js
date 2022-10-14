@@ -32,6 +32,15 @@ const repositoryName = process.env.Build.Repository.Name.split('/')[1]
 const prNumber = process.env.System.PullRequest.PullRequestNumber
 const body = process.env.Build.SourceVersionAuthor
 
+// Logging
+console.log('path to .pem file: ' + process.env.DownloadPrCommenterGitHubApp.secureFilePath)
+console.log('gitHubAppId: ' + githubAppId)
+console.log('installationId: ' + installationId)
+console.log('owner: ' + owner)
+console.log('repositoryName: ' + repositoryName)
+console.log('prNumber: ' + prNumber)
+console.log('body: ' + body)
+
 try {
   graphqlWithAuth(updateBodyFor("get_pull_request_id"), {
     owner: owner,
